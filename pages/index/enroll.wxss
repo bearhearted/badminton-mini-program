@@ -1,0 +1,117 @@
+/* pages/index/enroll.wxss */
+.body-view {
+  background-color:white;
+}
+.no-event-view {
+  text-align: center;
+  margin-top: 10rpx;
+  margin-bottom: 10rpx;
+  padding-bottom: 10rpx;
+}
+.event-view {
+  background-color: #fafafa;
+}
+.event-info-view {
+  font-weight:400;
+  text-align: center;
+  margin-top: 10rpx;
+  margin-bottom: 10rpx;
+  padding-bottom: 10rpx;
+}
+.no-enroll-view {
+  background-color: #fff;
+  text-align: center;
+  margin-top: 10rpx;
+  margin-bottom: 20rpx;
+  padding: 10rpx 0;
+}
+.body-list-view {
+  background-color: #ffffff;
+  margin: 10rpx 0;
+}
+.enroll-list-view {
+  background-color: #eeeeee;
+}
+.enroll-entity-view {
+  background-color: #ffffff;
+  font-size: small;
+  height: 65rpx;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 5rpx solid #eeeeee;
+}
+.enroll-index-view {
+  display:flex;
+  justify-content:center;  
+  align-items: center;
+  width: 100rpx;
+  height: 100%;
+}
+.regular-index-view {
+  width: 40rpx;
+  height: 40rpx;
+  font-size: x-small;
+  color:azure;
+  display:flex;
+  justify-content:center;  
+  align-items: center;
+  background-color: #2299ee ;
+  border-radius: 4px;
+}
+.understudy-index-view {
+  width: 80rpx;
+  height: 40rpx;
+  font-size: x-small;
+  color:azure;
+  display:flex;
+  justify-content:center;  
+  align-items: center;
+  background-color:#dd9933;
+  border-radius: 4px;
+}
+.enroll-image-view {
+  display:flex;
+  justify-content:center;  
+  align-items: center;
+  width: 100rpx;
+}
+.entity-avatar-image {
+  width: 58rpx;
+  height: 58rpx;
+  clip-path: circle(38rpx at center);
+}
+.enroll-name-view {
+  text-align: left;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 400rpx;
+  padding-left: 20rpx;
+}
+.enroll-delete-view {
+  color: #e3e3e3;
+  width: 100rpx;
+  height: 90%;
+  display: flex;
+  justify-content:center;
+  align-items: center;
+  margin-right: 30rpx;
+  background: #dd3333;
+  border-radius: 5px;
+}
+.delete-text {
+  font-size: smaller;
+}
+.enroll-no-delete-view {
+  width: 100rpx;
+  margin-right: 30rpx;
+}
+.button-view {
+  padding-top: 20rpx;
+}
+bottom-view {
+  padding-top: 50rpx;
+}

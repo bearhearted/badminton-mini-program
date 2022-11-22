@@ -1,0 +1,22 @@
+<!--pages/index/myenroll.wxml-->
+<view wx:if="{{events.length==0}}" class="no-enroll-view">
+  <image src='/images/no_enroll.png' class="no-enroll-image"/>
+  <view class="no-enroll-text">
+    <text>没有找到报名信息</text>，<navigator open-type="switchTab" url="/pages/index/index" class="enroll_nav">去报名</navigator>
+  </view>
+</view>
+<view wx:else>
+  <calendar></calendar>
+  <view class="body-list-view">
+    <view class="event-view" wx:for="{{events}}" wx:key="index" bindtap="jumpToPage" data-id="{{item.id}}">
+      <view class="event-detail-view">
+        <view class="event-head-view">{{item.day}}（{{item.weekday}}）羽毛球活动</view>
+        <view class="event-info-view">时间：{{item.day2}}（{{item.time}}）</view>        
+        <view class="event-info-view">球馆：{{item.stadium}}</view>
+        <view class="event-info-view">场地：{{item.fields}}</view>
+        <view class="event-info-view">费用：{{item.fee}}元/人</view>
+        <view class="event-info-view">人数：{{item.enrollNumber}}/{{item.totalNumber}}</view>
+      </view>
+    </view>
+  </view>
+</view>

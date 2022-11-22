@@ -1,0 +1,29 @@
+/**index.wxss**/
+.no-event-view {
+  text-align: center;
+  text-size-adjust: 100rpx;
+}
+.wait-view {
+  padding-top:50px;
+}
+.body-list-view {
+  background-color: #eeeeee;
+  margin: 10rpx 0;
+}
+.event-view {
+  background-color:#ffffff;
+  border-bottom: 5rpx solid #eeeeee;
+}
+.event-detail-view {
+  padding: 5px;
+}
+.event-head-view {
+  font-size: medium;
+  margin-left: 20rpx;
+  margin-bottom: 20rpx;
+}
+.event-info-view {
+  font-size: small;
+  margin-left: 20rpx;
+  margin-bottom: 5rpx;
+}

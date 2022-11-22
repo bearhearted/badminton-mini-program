@@ -1,0 +1,22 @@
+<!--index.wxml-->
+<view wx:if="{{events.length==0}}" class="no-event-view">
+  <image src='/images/no_event.png' class="wait-view"/>
+  <view class="wait-view">目前还没有活动</view>
+</view>
+<view wx:else>
+  <calendar></calendar>
+  <view class="body-list-view">
+    <view class="event-view" wx:for="{{events}}" wx:key="index" bindtap="jumpToPage" data-id="{{item.id}}">
+      <view class="event-detail-view">
+        <view class="event-head-view">{{item.day}}（{{item.weekday}}）羽毛球活动</view>
+        <view class="event-info-view">时间：{{item.day2}}（{{item.time}}）</view>        
+        <view class="event-info-view">球馆：{{item.stadium}}</view>
+        <view class="event-info-view">场地：{{item.fields}}</view>
+        <view class="event-info-view">费用：{{item.fee}}元/人</view>
+        <view class="event-info-view">人数：{{item.enrollNumber}}/{{item.totalNumber}}</view>
+        <view wx:if="{{item.enrolled}}" class="event-info-view">状态：您已报名</view>
+        <view wx:else class="event-info-view">状态：您还未报名</view>
+      </view>
+    </view>
+  </view>
+</view>

@@ -1,0 +1,21 @@
+<!--pages/index/user.wxml-->
+<view>
+  <button class="avatar-wrapper" open-type="chooseAvatar" bind:chooseavatar="onChooseAvatar">
+    <image class="avatar" src="{{avatarUrl}}"></image>
+  </button> 
+  <form bindsubmit="formSubmit">
+  <mp-form>
+    <mp-cells>
+      <mp-cell title="昵称">
+        <input name="username" type="nickname" class="weui-input" placeholder="请输入昵称"/>
+      </mp-cell>
+    </mp-cells>
+    <view class="button-view">
+      <button class="submit-button" type="primary" form-type="submit">提交</button>
+    </view>
+    <view class="tip-view">
+      <text class="tip-text">请先点击头像和昵称，授权信息后提交</text>
+    </view>
+  </mp-form>
+  </form>
+</view>

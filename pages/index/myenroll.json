@@ -1,0 +1,6 @@
+{
+  "usingComponents": {
+    "calendar":"/component/calendar/calendar"
+  },
+  "navigationBarTitleText": "我的活动"
+}

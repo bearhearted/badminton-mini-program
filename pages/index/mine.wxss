@@ -1,0 +1,64 @@
+/* pages/index/mine.wxss */
+
+.body-view {
+	width: 100%;
+	height: 100vh;
+	background-color: #a9a9a9;
+	display: flex;
+	flex-direction: column;
+	justify-content: flex-start;
+}
+.user-view {
+	margin-top: 140rpx;
+	display: flex;
+	flex-direction: column;
+	justify-content: flex-start;
+	align-items: center;
+}
+.window-view {
+	width: 520rpx;
+	background-color: #ffffff;
+	height: 700rpx;
+	border-radius: 20rpx;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+	align-items: center;
+	padding: 50rpx 20rpx;
+}
+.hint-view {
+  height: 50rpx;
+}
+.image-view {
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+	align-items: center;
+}
+.avatar-open {
+	width: 200rpx;
+	height: 200rpx;
+	clip-path: circle(138rpx at center);
+}
+.name-view {
+  padding-top: 10rpx;
+}
+.button-view {
+  height: 100rpx;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+	align-items: center;
+}
+.mine-view {
+  width: 360rpx;
+  height: 100rpx;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+}
+.mine-edit-view {
+  width: 150rpx;
+  height: 60rpx;
+  color: #cc9966;
+}

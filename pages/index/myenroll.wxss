@@ -1,0 +1,37 @@
+/* pages/index/myenroll.wxss */
+.no-enroll-view {
+  text-align: center;
+  text-size-adjust: 100rpx;
+}
+.no-enroll-image {
+  padding: 30px 0;
+}
+.no-enroll-text {
+  display: flex;
+  justify-content:center;
+  align-items: center;
+}
+.enroll_nav {
+  color: #cc9966;
+}
+.body-list-view {
+  background-color: #eeeeee;
+  margin: 10rpx 0;
+}
+.event-view {
+  background-color:#ffffff;
+  border-bottom: 5rpx solid #eeeeee;
+}
+.event-detail-view {
+  padding: 5px;
+}
+.event-head-view {
+  font-size: medium;
+  margin-left: 20rpx;
+  margin-bottom: 20rpx;
+}
+.event-info-view {
+  font-size: small;
+  margin-left: 20rpx;
+  margin-bottom: 5rpx;
+}

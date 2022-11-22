@@ -1,0 +1,35 @@
+<!--pages/index/enroll.wxml-->
+<view wx:if="{{event==null}}" class="body-view">
+  <view class="no-event-view">没有查询到活动</view>
+</view>
+<view wx:else class="body-view">
+  <view class="event-view">
+    <view class="event-info-view">{{event.day2}}（{{event.weekday}}）{{event.time}}</view>
+    <view class="event-info-view">{{event.stadium}}</view>
+  </view>
+  <view wx:if="{{enrolls.length==0}}" class="no-enroll-view">还没有人报名，欢迎成为第一个</view>
+  <view wx:else class="body-list-view">
+    <view class="enroll-list-view" wx:for="{{enrolls}}" wx:for-index="order" wx:key="index" data-id="{{item.id}}">
+      <view class="enroll-entity-view">
+          <view wx:if="{{order < event.totalNumber}}" class="enroll-index-view">
+            <view class="regular-index-view"><text>{{order+1}}</text></view>
+          </view>
+          <view wx:else class="enroll-index-view">
+            <view class="understudy-index-view">替补{{order+1-event.totalNumber}}</view>
+          </view>
+          <view class="enroll-image-view">
+            <image src="{{item.avatar}}" class="entity-avatar-image"></image>
+          </view>
+          <view class="enroll-name-view">{{item.username}}</view>
+          <view wx:if="{{item.delete}}" class="enroll-delete-view" bindtap="cancelEvent" data-id="{{item.id}}">
+            <text class="delete-text">退报</text>
+          </view>
+          <view wx:else class="enroll-no-delete-view"></view>
+        </view>
+    </view>
+  </view>
+  <view wx:if="{{!event.enrolled}}" class="button-view">
+    <button class="submit-button" type="primary" bindtap="enrollEvent">报名</button>
+  </view>
+  <view class="bottom-view">　</view>
+</view>
