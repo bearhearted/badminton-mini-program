@@ -9,6 +9,12 @@
 			<view class="name-view">
         <text>{{username}}</text>
 			</view>
+			<view class="mine-view">
+        <text>胜场：{{win}}</text><text>负场：{{lose}}</text>
+			</view>
+			<view class="mine-view">
+        <text>胜率：{{ratio}}</text><text>积分：{{point}}</text>
+			</view>
 			<view wx:if="{{user_status == 0}}" class="button-view">
         <button class="submit-button" type="primary" bindtap="updateUser">完善个人资料</button>
       </view>

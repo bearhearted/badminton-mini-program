@@ -1,0 +1,92 @@
+<!--pages/index/challenge.wxml-->
+<view wx:if="{{challenge.length==0}}" class="no-event-view">
+  <image src='/images/no_event.png' class="wait-view"/>
+  <view class="wait-view">目前还没有活动</view>
+</view>
+<view wx:else>
+  <!--整个界面-->
+  <view class="body-list-view">
+    <!--活动界面，按单次活动进行循环-->
+    <view class="event-challenge-view" wx:for="{{events}}" wx:for-item="eventInfo" wx:key="eventIndex">
+      <!--具体的活动界面-->
+      <view class="event-detail-view">
+        <!--活动的日期-->
+        <view class="event-head-view">{{eventInfo.date}}</view>
+        <!--挑战界面，按单次挑战进行循环-->
+        <view class="challenge-list-view" wx:for="{{eventInfo.list}}" wx:for-item="battleInfo" wx:for-index="idx" wx:key="battleIndex">
+          <!--具体的挑战界面-->
+          <view class="challenge-detail-view">
+            <!--序号区-->
+            <view class="challenge-index-view">对战{{idx+1}}</view>
+            <!--挑战区-->
+            <view class="challenge-body-view">
+              <!--约战左测-->
+              <view class="challenge-column-view">
+                <view class="challenge-challengers" wx:for="{{battleInfo.leftChallengers}}" wx:for-item="challengerInfo" wx:key="leftChallengerIndex">
+                  <image src="{{challengerInfo.avatar}}" class="left-challenger-avatar" bindtap="cancelChallenge" data-delete="{{challengerInfo.delete}}" data-cid="{{battleInfo.id}}"/>
+                  <view class="left-challenger-name">{{challengerInfo.username}}</view>
+                  </view>
+                <view class="challenge-challengers" wx:if="{{battleInfo.leftChallengerCount==1}}">
+                  <image src="/images/add.png" class="left-challenger-avatar" bindtap="joinChallenge" data-enrolled="{{battleInfo.enrolled}}" data-added="{{eventInfo.added}}" data-cid="{{battleInfo.id}}"></image>
+                  <view class="left-challenger-name">报名</view>
+                </view>
+              </view>
+              <!--约战中间的vs-->
+              <view class="challenge-vs">VS</view>
+              <!--约战右测-->
+              <view class="challenge-column-view">
+                <view class="challenge-challengers" wx:for="{{battleInfo.rightChallengers}}" wx:for-item="challengerInfo" wx:key="rightbattleIndex">
+                  <view class="right-challenger-name">{{challengerInfo.username}}</view>
+                  <image src="{{challengerInfo.avatar}}" class="right-challenger-avatar" bindtap="cancelChallenge" data-delete="{{challengerInfo.delete}}" data-cid="{{battleInfo.id}}"/>
+                </view>
+                <view class="challenge-challengers" wx:if="{{battleInfo.rightChallengerCount==0}}">
+                  <view class="right-challenger-name">报名</view>
+                  <image src="/images/add.png" class="right-challenger-avatar" bindtap="againstChallenge" data-enrolled="{{battleInfo.enrolled}}" data-added="{{eventInfo.added}}" data-cid="{{battleInfo.id}}"></image>
+                </view>
+                <view class="challenge-challengers" wx:if="{{battleInfo.rightChallengerCount==0||battleInfo.rightChallengerCount==1}}">
+                  <view class="right-challenger-name">报名</view>
+                  <image src="/images/add.png" class="right-challenger-avatar" bindtap="joinAgainstChallenge" data-enrolled="{{battleInfo.enrolled}}" data-added="{{eventInfo.added}}" data-cid="{{battleInfo.id}}"></image>
+                </view>
+              </view>
+            </view>
+            <!--分隔线-->
+            <view class="challenge-line-view"></view>
+            <!--投票区-->
+            <view class="challenge-body-view">
+              <!--左侧投票-->
+              <view class="challenge-column-view">
+                <view class="voter-list-view">
+                  <view class="challenge-voter-list" wx:for="{{battleInfo.leftVoters}}" wx:for-item="leftVoterList" wx:key="leftVoterListIndex">
+                    <view class="challenge-voter" wx:for="{{leftVoterList}}" wx:for-item="leftVoterInfo" wx:key="leftVoterIndex">
+                      <image src="{{leftVoterInfo.avatar}}" class="voter-avatar-image" bindtap="cancelVote" data-delete="{{leftVoterInfo.delete}}" data-cid="{{battleInfo.id}}"/>
+                    </view>
+                  </view>
+                </view>
+                <view class="vote_number_view" wx:if="{{battleInfo.leftVoterCount>0}}">{{battleInfo.leftVoterCount}}人为他们加油</view>
+                <view class="vote-view" bindtap="voteLeft" data-voted="{{battleInfo.voted}}" data-added="{{battleInfo.added}}" data-cid="{{battleInfo.id}}">我要加油</view>
+              </view>
+              <!--中间vs的占位-->
+              <view class="challenge-vs"></view>
+              <!--右侧投票-->
+              <view class="challenge-column-view">
+                <view class="voter-list-view">
+                  <view class="challenge-voter-list" wx:for="{{battleInfo.rightVoters}}" wx:for-item="rightVoterList" wx:key="rightVoterListIndex">
+                    <view class="challenge-voter" wx:for="{{rightVoterList}}" wx:for-item="rightVoterInfo" wx:key="rightVoterIndex">
+                      <image src="{{rightVoterInfo.avatar}}" class="voter-avatar-image" bindtap="cancelVote" data-delete="{{rightVoterInfo.delete}}" data-cid="{{battleInfo.id}}"/>
+                    </view>
+                  </view>
+                </view>
+                <view class="vote_number_view" wx:if="{{battleInfo.rightVoterCount>0}}">{{battleInfo.rightVoterCount}}人为他们加油</view>
+                <view class="vote-view" bindtap="voteRight" data-voted="{{battleInfo.voted}}" data-added="{{battleInfo.added}}" data-cid="{{battleInfo.id}}">我要加油</view>
+              </view>
+            </view>
+          </view>
+        </view>
+        <!--在活动下发起挑战-->
+        <view class="challenge-add-view">
+          <button class="submit-button" type="primary" bindtap="startChallenge" data-enrolled="{{eventInfo.enrolled}}" data-added="{{eventInfo.added}}" data-eid="{{eventInfo.id}}">发起约战</button>
+        </view>
+      </view>
+    </view>
+  </view>
+</view>

@@ -9,6 +9,10 @@ Page({
     user_status: 0,
     avatar: '/images/default_head.png',
     username: '匿名球友',
+    win: 0,
+    lose: 0,
+    ratio: 0,
+    point: 0,
   },
   /**
    * 加载用户信息
@@ -29,7 +33,11 @@ Page({
           that.setData({
             avatar: requestResult.data.data.avatar,
             username: requestResult.data.data.nickname,
-            user_status: requestResult.data.data.status
+            user_status: requestResult.data.data.status,
+            win: requestResult.data.data.win,
+            lose: requestResult.data.data.lose,
+            ratio: requestResult.data.data.ratio,
+            point: requestResult.data.data.win
           })
         }
       }

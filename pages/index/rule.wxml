@@ -1,0 +1,28 @@
+<!--pages/index/rule.wxml-->
+<view class="body-view">
+  <view class="head-view"><navigator url="/pages/index/rule" hover-class="navigator-hover">积分规则</navigator></view>
+  <view class="body-list-view">
+    <view class="point-list-view">
+      <view class="point-entity-view">
+        <view class="rule-index-view">1</view>
+        <view class="rule-desc-view">报名并参加一次活动可以获得积分。活动开始72小时前报名可以获得3积分，72小时内报名可以获取2积分。</view>
+      </view>
+      <view class="point-entity-view">
+        <view class="rule-index-view">2</view>
+        <view class="rule-desc-view">拉新人入群奖励1积分，新人来打球后各获得2积分。</view>
+      </view>
+      <view class="point-entity-view">
+        <view class="rule-index-view">3</view>
+        <view class="rule-desc-view">开展约战积分，胜利队伍获得3积分，失败队伍扣掉3积分。</view>
+      </view>
+      <view class="point-entity-view">
+        <view class="rule-index-view">4</view>
+        <view class="rule-desc-view">后续增加积分兑换规则以及年终积分评比，年终积分前五名有丰厚的奖品。</view>
+      </view>
+      <view class="point-entity-view">
+        <view class="rule-index-view">5</view>
+        <view class="rule-desc-view">积分有效期为一年，退群后积分随之清零。</view>
+      </view>
+    </view>
+  </view>
+</view>

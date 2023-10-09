@@ -4,7 +4,10 @@
     "pages/index/mine",
     "pages/index/enroll",
     "pages/index/myenroll",
-    "pages/index/user"
+    "pages/index/user",
+    "pages/index/battle",
+    "pages/index/point",
+    "pages/index/rule"
   ],
   "window": {
     "backgroundTextStyle": "light",
@@ -21,6 +24,18 @@
         "text": "首页",
         "iconPath": "images/b_u.png",
         "selectedIconPath": "images/b_c.png"
+      },
+      {
+        "pagePath": "pages/index/battle",
+        "text": "约战",
+        "iconPath": "images/v_u.png",
+        "selectedIconPath": "images/v_c.png"
+      },
+      {
+        "pagePath": "pages/index/point",
+        "text": "积分",
+        "iconPath": "images/p_u.png",
+        "selectedIconPath": "images/p_c.png"
       },
       {
         "pagePath": "pages/index/mine",

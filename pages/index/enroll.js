@@ -178,40 +178,68 @@ Page({
               content: '活动前24小时内无法取消，请联系管理员',
               showCancel: false
             })
-            return
-          }
-          wx.request({
-            url: app.apiUrl + 'user/cancel',
-            data: {
-              sid: app.globalData.USER_SESSION_ID,
-              eventId: that.data.eventId
-            },
-            method: 'GET',
-            header: {
-              'content-type': 'application/json' // 默认值
-            },
-            success (requestResuld) {
-              if(requestResuld.data.code === 0) {
-                wx.showModal({
-                  title: '成功',
-                  content: '取消成功，期待下次见面',
-                  showCancel: false,
-                  success: (showResult) => {
-                    if(showResult.confirm) {
-                      wx.redirectTo({
-                        url: '/pages/index/enroll?id=' + that.data.eventId,
-                      })
+          } else {
+            wx.request({
+              url: app.apiUrl + 'challenge/check',
+              data: {
+                sid: app.globalData.USER_SESSION_ID,
+                eventId: that.data.eventId
+              },
+              method: 'GET',
+              header: {
+                'content-type': 'application/json' // 默认值
+              },
+              success (requestResuld) {
+                if(requestResuld.data.data) {
+                  wx.showModal({
+                    title: '提示',
+                    content: '您还有参加挑战，确定要一起取消？',
+                    success: (showResult) => {
+                      if(showResult.confirm) {
+                        that.cancelFuction(app.globalData.USER_SESSION_ID, that.data.eventId)
+                      }
                     }
-                  }
-                })
-              } else {
-                wx.showModal({
-                  title: '出错了',
-                  content: requestResuld.data.msg,
-                  showCancel: false
+                  })
+                } else {
+                  that.cancelFuction(app.globalData.USER_SESSION_ID, that.data.eventId)
+                }
+              }
+            })
+          }
+        }
+      }
+    })
+  },
+  cancelFuction: function (sessionId, eventId) {
+    wx.request({
+      url: app.apiUrl + 'user/cancel',
+      data: {
+        sid: sessionId,
+        eventId: eventId
+      },
+      method: 'GET',
+      header: {
+        'content-type': 'application/json' // 默认值
+      },
+      success (requestResuld) {
+        if(requestResuld.data.code === 0) {
+          wx.showModal({
+            title: '成功',
+            content: '取消成功，期待下次见面',
+            showCancel: false,
+            success: (showResult) => {
+              if(showResult.confirm) {
+                wx.redirectTo({
+                  url: '/pages/index/enroll?id=' + eventId,
                 })
               }
             }
+          })
+        } else {
+          wx.showModal({
+            title: '出错了',
+            content: requestResuld.data.msg,
+            showCancel: false
           })
         }
       }

@@ -1,0 +1,13 @@
+<!--pages/index/point.wxml-->
+<view class="body-view">
+  <view class="head-view">积分排名 <text class="rule-view" bindtap="jumpToPage">说明</text></view>
+  <view class="body-list-view">
+    <view class="point-list-view" wx:for="{{users}}" wx:for-index="order" wx:key="index" data-id="{{item.id}}">
+      <view class="point-entity-view">
+          <view class="point-avatar-view"><image class="avatar-image" src="{{item.avatar}}"></image></view>
+          <view class="point-name-view">{{item.nickname}}</view>
+          <view class="point-point-view">{{item.point}}</view>
+        </view>
+    </view>
+  </view>
+</view>
