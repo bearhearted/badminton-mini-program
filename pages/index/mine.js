@@ -37,7 +37,7 @@ Page({
             win: requestResult.data.data.win,
             lose: requestResult.data.data.lose,
             ratio: requestResult.data.data.ratio,
-            point: requestResult.data.data.win
+            point: requestResult.data.data.point
           })
         }
       }

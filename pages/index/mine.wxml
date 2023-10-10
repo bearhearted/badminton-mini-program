@@ -18,9 +18,11 @@
 			<view wx:if="{{user_status == 0}}" class="button-view">
         <button class="submit-button" type="primary" bindtap="updateUser">完善个人资料</button>
       </view>
-      <view wx:else class="mine-view">
-        <navigator url="/pages/index/myenroll" class="mine-edit-view">我的报名</navigator>
-        <navigator url="/pages/index/user" class="mine-edit-view">修改资料</navigator>
+      <view wx:else>
+        <view class="mine-view">
+          <navigator url="/pages/index/myenroll" class="mine-edit-view">我的报名</navigator>
+          <navigator url="/pages/index/user" class="mine-edit-view">修改资料</navigator>
+        </view>
       </view>
 	  </view>
   </view>
