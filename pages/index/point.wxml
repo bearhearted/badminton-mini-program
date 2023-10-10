@@ -10,4 +10,7 @@
         </view>
     </view>
   </view>
+  <view wx:if="{{!isLast}}" class="button-view">
+    <button class="submit-button" type="primary" bindtap="loadMore">加载更多</button>
+  </view>
 </view>

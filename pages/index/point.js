@@ -7,6 +7,8 @@ Page({
    */
   data: {
     users: [],
+    page: 0,
+    isLast: false,
   },
 
   /**
@@ -15,7 +17,7 @@ Page({
   loadUserList: function () {
     var that = this
     wx.request({
-      url: app.apiUrl + 'point/user/list',
+      url: app.apiUrl + 'point/user/list?p=' + that.data.page,
       data: {
       },
       method: 'POST',
@@ -23,8 +25,10 @@ Page({
         'Accept': 'application/json'
       },
       success: (requestResult) => {
+        var newList = that.data.users.concat(requestResult.data.data.content);
         that.setData({
-          users: requestResult.data.data.content,
+          users: newList,
+          isLast: requestResult.data.data.last
         })
       }
     })
@@ -55,14 +59,14 @@ Page({
    * Lifecycle function--Called when page hide
    */
   onHide() {
-
+    this.data.page = 0;
+    this.data.users = [];
   },
 
   /**
    * Lifecycle function--Called when page unload
    */
   onUnload() {
-
   },
 
   /**
@@ -83,11 +87,24 @@ Page({
    * Called when user click on the top right corner to share
    */
   onShareAppMessage() {
-
+    return {
+      title: '羽你同行',
+      path: '/pages/index/index'
+    }
+  },
+  onShareTimeline: function () {
+    return {
+      title: '羽你同行',
+      path: '/pages/index/index'
+    }
   },
   jumpToPage(e) {
     wx.navigateTo({
       url: '/pages/index/rule',
     })
+  },
+  loadMore() {
+    this.data.page = this.data.page+1;
+    this.onShow();
   }
 })
