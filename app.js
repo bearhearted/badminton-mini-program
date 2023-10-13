@@ -1,6 +1,6 @@
 // app.js
 App({
-  apiUrl: 'https://badminton.bearvalley.cc/api/',
+  apiUrl: 'https://',
   defaultAvatarUrl: '/images/default_head.png',
   globalData: {
     USER_SESSION_ID: '',
@@ -35,7 +35,7 @@ App({
           success: (loginResult) => {
             // 调用wx.login获取登录凭证（code）成功，将返回的code发送到服务端，返回这个用户在服务端的一个sessionId;
             wx.request({
-              url: 'https://badminton.bearvalley.cc/api/login',
+              url: this.app.apiUrl + 'login',
               data: {
                 code: loginResult.code,
               },
