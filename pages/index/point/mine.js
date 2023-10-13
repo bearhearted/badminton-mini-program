@@ -1,4 +1,4 @@
-// pages/index/mine.js
+// pages/index/mypoint.js
 var app = getApp()
 Page({
 
@@ -6,48 +6,45 @@ Page({
    * 页面的初始数据
    */
   data: {
-    user_status: 0,
-    avatar: '/images/default_head.png',
-    username: '匿名球友',
-    win: 0,
-    lose: 0,
-    ratio: 0,
-    point: 0,
+    list: [],
+    page: 0,
+    isLast: true,
+    point: 0
   },
+
   /**
-   * 加载用户信息
+   * 加载积分列表
    */
-  loadUserInfo() {
+  loadPointRecordList: function () {
     var that = this
     wx.request({
-      url: app.apiUrl + 'user/get',
+      url: app.apiUrl + 'my/point/list',
       data: {
+        page: that.data.page,
         sid: app.globalData.USER_SESSION_ID
       },
-      method: 'GET',
+      method: 'POST',
       header: {
-          'Accept': 'application/json'
+        'Accept': 'application/json'
       },
       success: (requestResult) => {
-        if (requestResult.data.code == 0) {
-          var ratioStr = requestResult.data.data.ratio*100 + '%';
+        if (requestResult.data.data.content.length > 0) {
+          var newArray = that.data.list.concat(requestResult.data.data.content);
           that.setData({
-            avatar: requestResult.data.data.avatar,
-            username: requestResult.data.data.nickname,
-            user_status: requestResult.data.data.status,
-            win: requestResult.data.data.win,
-            lose: requestResult.data.data.lose,
-            ratio: ratioStr,
-            point: requestResult.data.data.point
+            list: newArray,
+            isLast: requestResult.data.data.last,
+            point: requestResult.data.data.content[0].user.point
           })
         }
       }
     })
   },
+
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad(options) {
+
   },
 
   /**
@@ -61,20 +58,15 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow() {
-    if(app.globalData.USER_SESSION_ID == '') {
-      app.login().then((res)=>{
-        this.loadUserInfo()
-      })
-    } else {
-      this.loadUserInfo()
-    }
+    this.loadPointRecordList();
   },
 
   /**
    * 生命周期函数--监听页面隐藏
    */
   onHide() {
-
+    this.data.page = 0;
+    this.data.list = [];
   },
 
   /**
@@ -114,11 +106,18 @@ Page({
     }
   },
   /**
-   * 跳转到用户完善资料页
+   * 跳转活动页面
    */
-  updateUser() {
-    wx.navigateTo({
-      url: '/pages/index/user',
+  jumpToEvent(e) {
+    wx.switchTab({
+      url: '/pages/index/index',
     })
+  },
+  /**
+   * 加载更多
+   */
+  loadMore() {
+    this.data.page = this.data.page+1;
+    this.onShow();
   }
 })

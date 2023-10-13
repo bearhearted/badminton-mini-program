@@ -28,7 +28,7 @@
                   </view>
                 <view class="challenge-challengers" wx:if="{{battleInfo.leftChallengerCount==1}}">
                   <image src="/images/add.png" class="left-challenger-avatar" bindtap="joinChallenge" data-enrolled="{{battleInfo.enrolled}}" data-added="{{eventInfo.added}}" data-cid="{{battleInfo.id}}"></image>
-                  <view class="left-challenger-name">报名</view>
+                  <view class="left-challenger-name">--</view>
                 </view>
               </view>
               <!--约战中间的vs-->
@@ -40,11 +40,11 @@
                   <image src="{{challengerInfo.avatar}}" class="right-challenger-avatar" bindtap="cancelChallenge" data-delete="{{challengerInfo.delete}}" data-cid="{{battleInfo.id}}"/>
                 </view>
                 <view class="challenge-challengers" wx:if="{{battleInfo.rightChallengerCount==0}}">
-                  <view class="right-challenger-name">报名</view>
+                  <view class="right-challenger-name">--</view>
                   <image src="/images/add.png" class="right-challenger-avatar" bindtap="againstChallenge" data-enrolled="{{battleInfo.enrolled}}" data-added="{{eventInfo.added}}" data-cid="{{battleInfo.id}}"></image>
                 </view>
                 <view class="challenge-challengers" wx:if="{{battleInfo.rightChallengerCount==0||battleInfo.rightChallengerCount==1}}">
-                  <view class="right-challenger-name">报名</view>
+                  <view class="right-challenger-name">--</view>
                   <image src="/images/add.png" class="right-challenger-avatar" bindtap="joinAgainstChallenge" data-enrolled="{{battleInfo.enrolled}}" data-added="{{eventInfo.added}}" data-cid="{{battleInfo.id}}"></image>
                 </view>
               </view>
@@ -83,7 +83,7 @@
           </view>
         </view>
         <!--在活动下发起挑战-->
-        <view class="challenge-add-view">
+        <view wx:if="{{!eventInfo.added}}" class="challenge-add-view">
           <button class="submit-button" type="primary" bindtap="startChallenge" data-enrolled="{{eventInfo.enrolled}}" data-added="{{eventInfo.added}}" data-eid="{{eventInfo.id}}">发起约战</button>
         </view>
       </view>

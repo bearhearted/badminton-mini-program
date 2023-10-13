@@ -1,0 +1,62 @@
+/* pages/index/point/store.wxss */
+
+.body-view {
+  background-color:white;
+}
+.image_title_view {
+  position: relative;
+  height: 240rpx;
+}
+.title-view {
+  width: 100%;
+  height: 240rpx;
+}
+.rule-view {
+  position: absolute;
+  left: 0;
+  top: 10rpx;
+  right: 0;
+  bottom: 0;
+  margin-left:570rpx;
+  padding-bottom: -300rpx;
+  background-color: rgba(215, 219, 207, 0.863);
+  width: 180rpx;
+  height: 50rpx;
+  border-radius: 50rpx 0 0 50rpx;
+  text-align: center;
+  vertical-align: center;
+}
+.rule-text {
+  padding-left: 20rpx;
+  font-size: 34rpx;
+  color:#00bbbb;
+  font-weight: 600;
+}
+.head-view {
+  font-size: large;
+  width: 100%;
+  height: 100rpx;
+  line-height: 44px;
+  border-bottom: 5rpx solid #2f7c11;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.list-view {
+  background-color: 0d0d0d;
+  font-size: medium;
+  width: 375rpx;
+  text-align: center;
+  color: #c0c0c0;
+  border-right: solid #2f7c11 1px;
+}
+.store-view {
+  font-size: medium;
+  width: 375rpx;
+  text-align: center;
+  border-left: solid #2f7c11 1px;
+}
+.wait-view {
+  padding-top:50px;
+  text-align: center;
+}

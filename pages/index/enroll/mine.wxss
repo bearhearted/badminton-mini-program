@@ -35,3 +35,6 @@
   margin-left: 20rpx;
   margin-bottom: 5rpx;
 }
+.button-view {
+  padding: 20rpx;
+}

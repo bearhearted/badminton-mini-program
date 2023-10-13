@@ -10,17 +10,53 @@
         <text>{{username}}</text>
 			</view>
 			<view class="mine-view">
-        <text>胜场：{{win}}</text><text>负场：{{lose}}</text>
+			  <view class="mine-left-view">
+          <view class="mine-property-view">
+            <text class="mine-data-text">胜场：</text>
+          </view>
+          <view class="mine-data-view">
+            <text class="mine-data-text">{{win}}</text>
+          </view>
+        </view>
+			  <view class="mine-right-view">
+          <view class="mine-property-view">
+            <text class="mine-data-text">负场：</text>
+          </view>
+          <view class="mine-data-view">
+            <text class="mine-data-text">{{lose}}</text>
+          </view>
+        </view>
 			</view>
 			<view class="mine-view">
-        <text>胜率：{{ratio}}</text><text>积分：{{point}}</text>
+			  <view class="mine-left-view">
+          <view class="mine-property-view">
+            <text class="mine-data-text">积分：</text>
+          </view>
+          <view class="mine-data-view">
+            <text class="mine-data-text">{{point}}</text>
+          </view>
+        </view>
+
+			  <view class="mine-right-view">
+          <view class="mine-property-view">
+            <text class="mine-data-text">胜率：</text>
+          </view>
+          <view class="mine-data-view">
+            <text class="mine-data-text">{{ratio}}</text>
+          </view>
+        </view>
+
 			</view>
 			<view wx:if="{{user_status == 0}}" class="button-view">
         <button class="submit-button" type="primary" bindtap="updateUser">完善个人资料</button>
       </view>
       <view wx:else>
-        <view class="mine-view">
-          <navigator url="/pages/index/myenroll" class="mine-edit-view">我的报名</navigator>
+        <view class="link-view">
+          <navigator url="/pages/index/enroll/mine" class="mine-edit-view">我的报名</navigator>
+          <navigator url="/pages/index/point/mine" class="mine-edit-view">积分详情</navigator>
+        </view>
+        <view class="link-view">
+          <navigator url="/pages/index/battle/mine" class="mine-edit-view">我的对战</navigator>
           <navigator url="/pages/index/user" class="mine-edit-view">修改资料</navigator>
         </view>
       </view>

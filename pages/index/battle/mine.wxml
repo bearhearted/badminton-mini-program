@@ -1,0 +1,28 @@
+<!--pages/index/mybattle.wxml-->
+<view class="body-view">
+  <view class="head-view">我的对战记录</view>
+  <view wx:if="{{battles.length==0}}" class="no-battle-view">
+    <view class="wait-view">还没有对战记录，赶紧去<text class="join-battle-view" bind:tap="jumpToBattle">参加</text>吧</view>
+  </view>
+  <view wx:else class="body-list-view">
+    <view class="point-entity-view">
+      <view class="point-date-view">对战日期</view>
+      <view class="point-teammate-view-center">队友</view>
+      <view class="point-vs-view"></view>
+      <view class="point-opponent-view-center">对手</view>
+      <view class="point-result-view">结果</view>
+    </view>
+    <view class="point-list-view" wx:for="{{battles}}" wx:for-index="order" wx:key="index" data-id="{{item.id}}">
+      <view class="point-entity-view">
+        <view class="point-date-view">{{item.date}}</view>
+        <view class="point-teammate-view">{{item.teammate}}</view>
+        <view class="point-vs-view">VS</view>
+        <view class="point-opponent-view">{{item.opponent}}</view>
+        <view class="point-result-view">{{item.result}}</view>
+      </view>
+    </view>
+  </view>
+  <view wx:if="{{!isLast}}" class="button-view">
+    <button class="submit-button" type="primary" bindtap="loadMore">加载更多</button>
+  </view>
+</view>

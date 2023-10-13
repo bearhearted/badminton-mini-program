@@ -1,6 +1,6 @@
 <!--pages/index/rule.wxml-->
 <view class="body-view">
-  <view class="head-view"><navigator url="/pages/index/rule" hover-class="navigator-hover">积分规则</navigator></view>
+  <view class="head-view">积分规则</view>
   <view class="body-list-view">
     <view class="point-list-view">
       <view class="point-entity-view">

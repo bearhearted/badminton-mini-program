@@ -9,6 +9,9 @@ Page({
     users: [],
     page: 0,
     isLast: false,
+    name: '',
+    avatar: '',
+    point: 0,
   },
 
   /**
@@ -17,7 +20,7 @@ Page({
   loadUserList: function () {
     var that = this
     wx.request({
-      url: app.apiUrl + 'point/user/list?p=' + that.data.page,
+      url: app.apiUrl + 'point/list?p=' + that.data.page,
       data: {
       },
       method: 'POST',
@@ -29,6 +32,29 @@ Page({
         that.setData({
           users: newList,
           isLast: requestResult.data.data.last
+        })
+      }
+    })
+  },
+
+  /**
+   * 加载积分列表
+   */
+  loadUserPoint: function () {
+    var that = this
+    wx.request({
+      url: app.apiUrl + 'user/get?sid=' + app.globalData.USER_SESSION_ID,
+      data: {
+      },
+      method: 'GET',
+      header: {
+        'Accept': 'application/json'
+      },
+      success: (requestResult) => {
+        that.setData({
+          name: requestResult.data.data.nickname,
+          avatar: requestResult.data.data.avatar,
+          point: requestResult.data.data.point
         })
       }
     })
@@ -53,6 +79,9 @@ Page({
    */
   onShow() {
     this.loadUserList();
+    if(this.data.point == 0) {
+      this.loadUserPoint()
+    }
   },
 
   /**
@@ -98,11 +127,25 @@ Page({
       path: '/pages/index/index'
     }
   },
-  jumpToPage(e) {
+  /**
+   * 跳转积分规则页面
+   */
+  jumpToRule(e) {
     wx.navigateTo({
-      url: '/pages/index/rule',
+      url: '/pages/index/point/rule',
     })
   },
+  /**
+   * 跳转积分规则页面
+   */
+  jumpToStore(e) {
+    wx.navigateTo({
+      url: '/pages/index/point/store',
+    })
+  },
+  /**
+   * 加载更多
+   */
   loadMore() {
     this.data.page = this.data.page+1;
     this.onShow();

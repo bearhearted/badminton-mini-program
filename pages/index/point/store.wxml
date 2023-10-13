@@ -1,0 +1,18 @@
+<!--pages/index/point/store.wxml-->
+<view class="body-view">
+  <view class="image_title_view">
+    <image src='/images/point.jpg' class="title-view"/>
+    <view class="rule-view">
+      <text class="rule-text" bind:tap="jumpToRule">规则说明</text>
+    </view>
+  </view>
+  <view class="head-view">
+    <view class="list-view" bind:tap="jumpToList">积分排名</view>
+    <view class="store-view">积分商场</view>
+  </view>
+  <view wx:if="{{goods.length==0}}" class="no-event-view">
+    <view class="wait-view">敬请等待积分商品上线</view>
+  </view>
+  <view wx:else>
+  </view>
+</view>

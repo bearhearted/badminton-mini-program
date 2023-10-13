@@ -1,0 +1,39 @@
+<!--pages/index/point.wxml-->
+<view class="body-view">
+  <view class="image_title_view">
+    <image src='/images/point.jpg' class="title-view"/>
+    <view class="rule-view">
+      <text class="rule-text" bind:tap="jumpToRule">规则说明</text>
+    </view>
+  </view>
+  <view class="head-view">
+    <view class="list-view">积分排名</view>
+    <view class="store-view" bind:tap="jumpToStore">积分商场</view>
+  </view>
+  <view class="my-data-view">
+    <view class="point-entity-view">
+        <view class="point-avatar-view"></view>
+        <view class="point-name-view">用户</view>
+        <view class="point-point-view">积分</view>
+      </view>
+  </view>
+  <view class="my-data-view">
+    <view class="point-self-view">
+        <view class="point-avatar-view"><image class="avatar-image" src="{{avatar}}"></image></view>
+        <view class="point-name-view">{{name}}（自己）</view>
+        <view class="point-point-view">{{point}}</view>
+      </view>
+  </view>
+  <view class="body-list-view">
+    <view class="point-list-view" wx:for="{{users}}" wx:for-index="order" wx:key="index" data-id="{{item.id}}">
+      <view class="point-entity-view">
+        <view class="point-avatar-view"><image class="avatar-image" src="{{item.avatar}}"></image></view>
+        <view class="point-name-view">{{item.nickname}}</view>
+        <view class="point-point-view">{{item.point}}</view>
+      </view>
+    </view>
+  </view>
+  <view wx:if="{{!isLast}}" class="button-view">
+    <button class="submit-button" type="primary" bindtap="loadMore">加载更多</button>
+  </view>
+</view>

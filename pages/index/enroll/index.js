@@ -147,7 +147,7 @@ Page({
             success: (showResult) => {
               if(showResult.confirm) {
                 wx.redirectTo({
-                  url: '/pages/index/enroll?id=' + that.data.eventId,
+                  url: '/pages/index/enroll/index?id=' + that.data.eventId,
                 })
               }
             }
@@ -180,7 +180,7 @@ Page({
             })
           } else {
             wx.request({
-              url: app.apiUrl + 'challenge/check',
+              url: app.apiUrl + 'battle/check',
               data: {
                 sid: app.globalData.USER_SESSION_ID,
                 eventId: that.data.eventId
@@ -193,12 +193,8 @@ Page({
                 if(requestResuld.data.data) {
                   wx.showModal({
                     title: '提示',
-                    content: '您还有参加挑战，确定要一起取消？',
-                    success: (showResult) => {
-                      if(showResult.confirm) {
-                        that.cancelFuction(app.globalData.USER_SESSION_ID, that.data.eventId)
-                      }
-                    }
+                    content: '您本次活动有参加对战，请先取消对战后再退报',
+                    showCancel: false
                   })
                 } else {
                   that.cancelFuction(app.globalData.USER_SESSION_ID, that.data.eventId)
@@ -230,7 +226,7 @@ Page({
             success: (showResult) => {
               if(showResult.confirm) {
                 wx.redirectTo({
-                  url: '/pages/index/enroll?id=' + eventId,
+                  url: '/pages/index/enroll/index?id=' + eventId,
                 })
               }
             }

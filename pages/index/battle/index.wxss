@@ -7,15 +7,16 @@
   padding-top:50px;
 }
 .body-list-view {
-  background-color: #eeeeee;
+  background-color: #f6f6f6;
   margin: 10rpx 0;
 }
 .event-challenge-view {
-  background-color:#ffffff;
-  border-bottom: 5rpx solid #eeeeee;
+  background-color:#f6f6f6;
+  border-bottom: 5rpx solid #f6f6f6;
 }
 .event-detail-view {
   padding: 5px;
+  border-bottom: 5rpx solid #cccccc;
 }
 .event-head-view {
   font-size: large;
@@ -27,15 +28,15 @@
   margin-bottom: 5rpx;
 }
 .challenge-detail-view {
-  color:#efefef;
-  background-color: #4b4b4b;
+  background-color: #e4d5c6;
   font-size: small;
   width: 100%;
   display: flex;
   justify-content: space-around;
   flex-direction: column;
   align-items: center;
-  border-bottom: 5rpx solid #eeeeee;
+  border-radius: 20rpx;
+  margin: 10rpx 0;
 }
 .challenge-index-view {
   text-align: center;
@@ -135,12 +136,21 @@
   clip-path: circle(38rpx at center);
 }
 .vote_number_view {
-  font-size:xx-small;
+  font-size:x-small;
   margin-bottom: 10rpx;
 }
 .vote-view {
   width: 200rpx;
   margin-left:40rpx;
-  background-color: #aaaaaa;
+  background-color: #ddeebb;
   margin-bottom: 20rpx;
+  border-radius: 10rpx;
+  padding-top: 5rpx;
+  padding-bottom: 5rpx;
+}
+.challenge-add-view {
+  padding: 10rpx 0;
+}
+.submit-button {
+  width: auto;
 }

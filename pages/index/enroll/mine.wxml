@@ -1,6 +1,6 @@
 <!--pages/index/myenroll.wxml-->
 <view wx:if="{{events.length==0}}" class="no-enroll-view">
-  <image src='/images/no_enroll.png' class="no-enroll-image"/>
+  <image src='/images/no_enroll.jpg' class="no-enroll-image"/>
   <view class="no-enroll-text">
     <text>没有找到报名信息</text>，<navigator open-type="switchTab" url="/pages/index/index" class="enroll_nav">去报名</navigator>
   </view>
@@ -17,6 +17,9 @@
         <view class="event-info-view">费用：{{item.fee}}元/人</view>
         <view class="event-info-view">人数：{{item.enrollNumber}}/{{item.totalNumber}}</view>
       </view>
+    </view>
+    <view wx:if="{{!isLast}}" class="button-view">
+      <button class="submit-button" type="primary" bindtap="loadMore">加载更多</button>
     </view>
   </view>
 </view>

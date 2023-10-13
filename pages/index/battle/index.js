@@ -134,7 +134,7 @@ Page({
         success(res) {
           if(res.confirm) {
             wx.redirectTo({
-              url: '/pages/index/enroll?id=' + e.target.dataset.eid + '&sid=' + app.globalData.USER_SESSION_ID
+              url: '/pages/index/enroll/index?id=' + e.target.dataset.eid + '&sid=' + app.globalData.USER_SESSION_ID
             })
           }
         }
@@ -280,7 +280,7 @@ Page({
         success(res) {
           if(res.confirm) {
             wx.redirectTo({
-              url: '/pages/index/enroll?id=' + e.target.dataset.eid + '&sid=' + app.globalData.USER_SESSION_ID
+              url: '/pages/index/enroll/index?id=' + e.target.dataset.eid + '&sid=' + app.globalData.USER_SESSION_ID
             })
           }
         }

@@ -83,7 +83,7 @@ Page({
       })
     } else {
       wx.navigateTo({
-        url: '/pages/index/enroll?id=' + e.currentTarget.dataset.id,
+        url: '/pages/index/enroll/index?id=' + e.currentTarget.dataset.id,
       })
     }
   }

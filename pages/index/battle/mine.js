@@ -1,4 +1,4 @@
-// pages/index/myenroll.js
+// pages/index/mybattle.js
 var app = getApp()
 Page({
 
@@ -6,30 +6,38 @@ Page({
    * 页面的初始数据
    */
   data: {
-    enrolls: [],
+    battles: [],
+    page: 0,
+    isLast: true
   },
 
   /**
-   * 加载我的活动列表
+   * 加载我的对战列表
    */
-  loadEvents: function () {
+  loadBattles: function () {
     var that = this
     wx.request({
-      url: app.apiUrl + 'my/event',
+      url: app.apiUrl + 'battle/my/list',
       data: {
+        page: that.data.page,
         sid: app.globalData.USER_SESSION_ID
       },
-      method: 'GET',
+      method: 'POST',
       header: {
           'Accept': 'application/json'
       },
       success: (requestResult) => {
-        that.setData({
-          events: requestResult.data.data,
-        })
+        if (requestResult.data.data.list.length > 0) {
+          var newArray = that.data.battles.concat(requestResult.data.data.list);
+          that.setData({
+            isLast: requestResult.data.data.last,
+            battles: newArray
+          })
+        }
       }
     })
   },
+
   /**
    * 生命周期函数--监听页面加载
    */
@@ -50,10 +58,10 @@ Page({
   onShow() {
     if(app.globalData.USER_SESSION_ID == '') {
       app.login().then((res)=>{
-        this.loadEvents()
+        this.loadBattles()
       })
     } else {
-      this.loadEvents()
+      this.loadBattles()
     }
   },
 
@@ -61,7 +69,8 @@ Page({
    * 生命周期函数--监听页面隐藏
    */
   onHide() {
-
+    this.data.page = 0;
+    this.data.battles = [];
   },
 
   /**
@@ -100,9 +109,19 @@ Page({
       path: '/pages/index/index'
     }
   },
-  jumpToPage(e) {
-    wx.navigateTo({
-      url: '/pages/index/enroll?id=' + e.currentTarget.dataset.id,
+  /**
+   * 跳转对战页面
+   */
+  jumpToBattle(e) {
+    wx.switchTab({
+      url: '/pages/index/battle/index',
     })
+  },
+  /**
+   * 加载更多
+   */
+  loadMore() {
+    this.data.page = this.data.page+1;
+    this.onShow();
   }
 })

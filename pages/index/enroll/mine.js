@@ -1,4 +1,4 @@
-// pages/index/mine.js
+// pages/index/myenroll.js
 var app = getApp()
 Page({
 
@@ -6,39 +6,32 @@ Page({
    * 页面的初始数据
    */
   data: {
-    user_status: 0,
-    avatar: '/images/default_head.png',
-    username: '匿名球友',
-    win: 0,
-    lose: 0,
-    ratio: 0,
-    point: 0,
+    events: [],
+    page: 0,
+    isLast: true,
   },
+
   /**
-   * 加载用户信息
+   * 加载我的活动列表
    */
-  loadUserInfo() {
+  loadEvents: function () {
     var that = this
     wx.request({
-      url: app.apiUrl + 'user/get',
+      url: app.apiUrl + 'my/event/list',
       data: {
+        page: that.data.page,
         sid: app.globalData.USER_SESSION_ID
       },
-      method: 'GET',
+      method: 'POST',
       header: {
           'Accept': 'application/json'
       },
       success: (requestResult) => {
-        if (requestResult.data.code == 0) {
-          var ratioStr = requestResult.data.data.ratio*100 + '%';
+        if (requestResult.data.data.list.length > 0) {
+          var newArray = that.data.events.concat(requestResult.data.data.list);
           that.setData({
-            avatar: requestResult.data.data.avatar,
-            username: requestResult.data.data.nickname,
-            user_status: requestResult.data.data.status,
-            win: requestResult.data.data.win,
-            lose: requestResult.data.data.lose,
-            ratio: ratioStr,
-            point: requestResult.data.data.point
+            isLast: requestResult.data.data.last,
+            events: newArray
           })
         }
       }
@@ -48,6 +41,7 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad(options) {
+
   },
 
   /**
@@ -63,10 +57,10 @@ Page({
   onShow() {
     if(app.globalData.USER_SESSION_ID == '') {
       app.login().then((res)=>{
-        this.loadUserInfo()
+        this.loadEvents()
       })
     } else {
-      this.loadUserInfo()
+      this.loadEvents()
     }
   },
 
@@ -74,7 +68,8 @@ Page({
    * 生命周期函数--监听页面隐藏
    */
   onHide() {
-
+    this.data.page = 0;
+    this.data.events = [];
   },
 
   /**
@@ -114,11 +109,19 @@ Page({
     }
   },
   /**
-   * 跳转到用户完善资料页
+   * 跳转页面
+   * @param {} e 
    */
-  updateUser() {
+  jumpToPage(e) {
     wx.navigateTo({
-      url: '/pages/index/user',
+      url: '/pages/index/enroll/index?id=' + e.currentTarget.dataset.id,
     })
+  },
+  /**
+   * 加载更多
+   */
+  loadMore() {
+    this.data.page = this.data.page+1;
+    this.onShow();
   }
 })
