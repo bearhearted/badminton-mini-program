@@ -25,9 +25,13 @@
                 <view class="challenge-challengers" wx:for="{{battleInfo.leftChallengers}}" wx:for-item="challengerInfo" wx:key="leftChallengerIndex">
                   <image src="{{challengerInfo.avatar}}" class="left-challenger-avatar" bindtap="cancelChallenge" data-delete="{{challengerInfo.delete}}" data-cid="{{battleInfo.id}}"/>
                   <view class="left-challenger-name">{{challengerInfo.username}}</view>
-                  </view>
-                <view class="challenge-challengers" wx:if="{{battleInfo.leftChallengerCount==1}}">
-                  <image src="/images/add.png" class="left-challenger-avatar" bindtap="joinChallenge" data-enrolled="{{battleInfo.enrolled}}" data-added="{{eventInfo.added}}" data-cid="{{battleInfo.id}}"></image>
+                </view>
+                <view class="challenge-challengers" wx:if="{{battleInfo.leftChallengerCount==0}}">
+                  <image src="/images/add.png" class="left-challenger-avatar" bindtap="joinChallenge" data-enrolled="{{battleInfo.enrolled}}" data-added="{{eventInfo.added}}" data-cid="{{battleInfo.id}}" data-eid="{{eventInfo.id}}"></image>
+                  <view class="left-challenger-name">--</view>
+                </view>
+                <view class="challenge-challengers" wx:if="{{battleInfo.leftChallengerCount==0||battleInfo.leftChallengerCount==1}}">
+                  <image src="/images/add.png" class="left-challenger-avatar" bindtap="joinChallenge" data-enrolled="{{battleInfo.enrolled}}" data-added="{{eventInfo.added}}" data-cid="{{battleInfo.id}}" data-eid="{{eventInfo.id}}"></image>
                   <view class="left-challenger-name">--</view>
                 </view>
               </view>
@@ -41,11 +45,11 @@
                 </view>
                 <view class="challenge-challengers" wx:if="{{battleInfo.rightChallengerCount==0}}">
                   <view class="right-challenger-name">--</view>
-                  <image src="/images/add.png" class="right-challenger-avatar" bindtap="againstChallenge" data-enrolled="{{battleInfo.enrolled}}" data-added="{{eventInfo.added}}" data-cid="{{battleInfo.id}}"></image>
+                  <image src="/images/add.png" class="right-challenger-avatar" bindtap="againstChallenge" data-enrolled="{{battleInfo.enrolled}}" data-added="{{eventInfo.added}}" data-cid="{{battleInfo.id}}" data-eid="{{eventInfo.id}}"></image>
                 </view>
                 <view class="challenge-challengers" wx:if="{{battleInfo.rightChallengerCount==0||battleInfo.rightChallengerCount==1}}">
                   <view class="right-challenger-name">--</view>
-                  <image src="/images/add.png" class="right-challenger-avatar" bindtap="joinAgainstChallenge" data-enrolled="{{battleInfo.enrolled}}" data-added="{{eventInfo.added}}" data-cid="{{battleInfo.id}}"></image>
+                  <image src="/images/add.png" class="right-challenger-avatar" bindtap="joinAgainstChallenge" data-enrolled="{{battleInfo.enrolled}}" data-added="{{eventInfo.added}}" data-cid="{{battleInfo.id}}" data-eid="{{eventInfo.id}}"></image>
                 </view>
               </view>
             </view>
