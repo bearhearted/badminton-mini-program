@@ -1,0 +1,26 @@
+<!--pages/index/point/item.wxml-->
+<view class="item-body">
+  <view class="swiper-item">
+    <swiper class="swiper-container" 
+            indicator-dots indicator-color="#f49641" indicator-active-color="#14694f" autoplay interval="3000" circular>
+      <block wx:for="{{pics}}" wx:key="this">
+        <swiper-item>
+          <image src="{{item}}" class="image {{swiperIndex === index ? 'active' : 'quite'}}" />
+        </swiper-item>
+      </block>
+   </swiper>
+  </view>
+  <view class="name-view">
+    <view class="name-text">{{name}}</view>
+  </view>
+  <view class="point-view">
+    <view class="point-text">消耗积分：{{point}}</view>
+    <view class="point-stock">目前库存:{{left}}/{{stock}}</view>
+  </view>
+  <view class="intro-view">
+    <view class="intro-text">商品简介：{{intro}}</view>
+  </view>
+  <view class="order-view">
+    <button style="width: 700rpx;" size="default" type="primary" bindtap="confirm">兑换该商品（需要{{point}}积分）</button>
+  </view>
+</view>

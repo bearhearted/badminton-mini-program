@@ -1,0 +1,43 @@
+/* pages/index/point/item.wxss */
+.swiper-item {
+  height: 550rpx;
+}
+.swiper-container {
+  height:550rpx;
+}
+.name-view {
+  background-color: bisque;
+  text-align: center;
+  border-top: 5rpx solid #333333;
+  border-bottom: 3rpx solid #999999;
+}
+.name-text {
+  font-size: 50rpx;
+  padding: 10rpx;
+}
+.point-view {
+  background-color: #eeeeee;
+  border-bottom: 3rpx solid #999999;
+  display: flex;
+  justify-content: space-between;
+  padding: 10rpx 0;
+}
+.point-text {
+  padding-left:50rpx;
+}
+.point-stock {
+  padding-right:50rpx;
+}
+.intro-view {
+  background-color: #dddddd;
+  border-bottom: 3rpx solid #999999;
+}
+.intro-text {
+  padding: 10rpx;
+  margin:0 40rpx;
+  width: 650rpx;
+  height: 100%;
+}
+.order-view {
+  padding-top: 15rpx;
+}

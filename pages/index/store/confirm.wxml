@@ -1,0 +1,12 @@
+<!--pages/index/point/confirm.wxml-->
+<view class="body-view">
+  <view class="info-view">
+    <view class="pic-view">
+      <image src="{{pic}}" class="" />
+    </view>
+    <view class="intro-view">您正在购买[{{name}}]，消耗[{{point}}]积分，购买后您的积分变为[{{left}}]。</view>
+    <view class="order-view">
+      <button style="width: 200rpx;" size="default" type="primary" bindtap="order">确定</button>
+    </view>
+  </view>
+</view>

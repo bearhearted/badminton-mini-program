@@ -10,7 +10,10 @@
     "pages/index/point/list",
     "pages/index/point/rule",
     "pages/index/point/mine",
-    "pages/index/point/store"
+    "pages/index/store/list",
+    "pages/index/store/item",
+    "pages/index/store/confirm",
+    "pages/index/store/order"
   ],
   "window": {
     "backgroundTextStyle": "light",

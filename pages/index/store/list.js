@@ -7,6 +7,32 @@ Page({
    */
   data: {
     goods:[],
+    page:0,
+    isLast:true
+  },
+
+  /**
+   * 加载商品列表
+   */
+  loadItemList: function () {
+    var that = this
+    wx.request({
+      url: app.apiUrl + 'store/list',
+      data: {
+        page: that.data.page
+      },
+      method: 'POST',
+      header: {
+        'Accept': 'application/json'
+      },
+      success: (requestResult) => {
+        var newList = that.data.goods.concat(requestResult.data.data.list);
+        that.setData({
+          goods: newList,
+          isLast: requestResult.data.data.last
+        })
+      }
+    })
   },
 
   /**
@@ -27,7 +53,7 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow() {
-
+    this.loadItemList()
   },
 
   /**
@@ -55,7 +81,9 @@ Page({
    * 页面上拉触底事件的处理函数
    */
   onReachBottom() {
-
+    if(!this.data.isLast) {
+      this.loadMore()
+    }
   },
 
   /**
@@ -82,7 +110,7 @@ Page({
     })
   },
   /**
-   * 跳转积分规则页面
+   * 跳转积分列表页面
    */
   jumpToList(e) {
     wx.switchTab({
@@ -93,7 +121,7 @@ Page({
    * 加载更多
    */
   loadMore() {
-    //this.data.page = this.data.page+1;
+    this.data.page = this.data.page+1;
     this.onShow();
   }
 })

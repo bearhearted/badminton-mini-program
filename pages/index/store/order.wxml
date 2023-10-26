@@ -1,0 +1,9 @@
+<!--pages/index/point/order.wxml-->
+<view>
+  <view wx:if="{{success}}">
+    购买成功
+  </view>
+  <view wx:else>
+    错误，{{errorMsg}}
+  </view>
+</view>

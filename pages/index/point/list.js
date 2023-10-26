@@ -136,11 +136,11 @@ Page({
     })
   },
   /**
-   * 跳转积分规则页面
+   * 跳转积分商场页面
    */
   jumpToStore(e) {
     wx.navigateTo({
-      url: '/pages/index/point/store',
+      url: '/pages/index/store/list',
     })
   },
   /**

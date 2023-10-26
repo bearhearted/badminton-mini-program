@@ -14,5 +14,19 @@
     <view class="wait-view">敬请等待积分商品上线</view>
   </view>
   <view wx:else>
+    <block wx:for="{{goods}}" wx:key="item">
+      <view class="school-list">
+        <navigator url="/pages/index/store/item?id={{item.id}}">
+          <view class="item-list-info" index="{{index}}">
+            <image class="item-picture" src="{{item.picture}}"/>
+            <text class="item-name">{{item.name}}</text>
+            <text class="item-desc">
+              <text class="item-point">积分:{{item.point}}</text>
+              <text class="item-left">剩余:{{item.left}}</text>
+            </text>
+          </view>
+        </navigator>
+      </view>
+    </block>
   </view>
 </view>

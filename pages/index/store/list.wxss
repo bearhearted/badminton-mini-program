@@ -1,7 +1,7 @@
 /* pages/index/point/store.wxss */
 
 .body-view {
-  background-color:white;
+  background-color:#f6f6f6;
 }
 .image_title_view {
   position: relative;
@@ -43,7 +43,6 @@
   align-items: center;
 }
 .list-view {
-  background-color: 0d0d0d;
   font-size: medium;
   width: 375rpx;
   text-align: center;
@@ -59,4 +58,42 @@
 .wait-view {
   padding-top:50px;
   text-align: center;
+}
+.item-list-info{
+  float: left;
+  margin: 13rpx;
+  position: relative;
+  background-color: #f6f6f6;
+}
+.item-picture{
+  width: 350rpx;
+  height: 350rpx;
+}
+.item-name {
+  display: block;
+  background-color: #d9d9d9;
+  bottom: 3%;
+  left: 0;
+  width: 94%;
+  text-align: center;
+  font-size: 30rpx;
+  padding: 10rpx;
+  opacity: 0.7;
+}
+.item-desc {
+  display: block;
+  background-color: #d9d9d9;
+  bottom: 3%;
+  left: 0;
+  width: 94%;
+  text-align: center;
+  font-size: 30rpx;
+  padding: 10rpx;
+  opacity: 0.7;
+}
+.item-point {
+  padding-right:20rpx;
+}
+.item-left {
+  padding-left:20rpx;
 }
