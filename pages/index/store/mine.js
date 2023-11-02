@@ -1,4 +1,4 @@
-// pages/index/point/order.js
+// pages/index/store/mine.js
 var app = getApp()
 Page({
 
@@ -6,19 +6,20 @@ Page({
    * 页面的初始数据
    */
   data: {
-    itemId: '',
-    success: false,
-    errorMsg: '',
+    list: [],
+    page: 0,
+    isLast: true,
   },
-  
+
   /**
-   * 购买商品
-   */
-  orderItem: function () {
+   * 加载积分列表
+   */  
+  loadOrderList: function () {
     var that = this
     wx.request({
-      url: app.apiUrl + 'store/item/' + that.data.itemId + '/order',
+      url: app.apiUrl + 'store/my/order/list',
       data: {
+        page: that.data.page,
         sid: app.globalData.USER_SESSION_ID
       },
       method: 'POST',
@@ -26,14 +27,12 @@ Page({
         'Accept': 'application/json'
       },
       success: (requestResult) => {
-        if (requestResult.data.data.code == 0) {
+        if (requestResult.data.data.list.length > 0) {
+          var newArray = that.data.list.concat(requestResult.data.data.list);
           that.setData({
-            success: true
-          });
-        } else {
-          that.setData({
-            errorMsg: requestResult.data.data.msg
-          });
+            list: newArray,
+            isLast: requestResult.data.data.last,
+          })
         }
       }
     })
@@ -43,8 +42,7 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad(options) {
-    this.data.itemId = options.id;
-    this.orderItem();
+
   },
 
   /**
@@ -58,13 +56,15 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow() {
+    this.loadOrderList();
   },
 
   /**
    * 生命周期函数--监听页面隐藏
    */
   onHide() {
-
+    this.data.page = 0;
+    this.data.list = [];
   },
 
   /**
@@ -107,16 +107,15 @@ Page({
    * 跳转商城页面
    */
   jumpToStore(e) {
-    wx.redirectTo({
+    wx.navigateTo({
       url: '/pages/index/store/list',
     })
   },
   /**
-   * 跳转到我的订单界面
+   * 加载更多
    */
-  jumpToMine() {
-    wx.redirectTo({
-      url: '/pages/index/store/mine',
-    })
+  loadMore() {
+    this.data.page = this.data.page+1;
+    this.onShow();
   }
 })

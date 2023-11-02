@@ -1,9 +1,15 @@
 <!--pages/index/point/order.wxml-->
-<view>
-  <view wx:if="{{success}}">
+<view class="body-view">
+  <view wx:if="{{success}}" class="result-view">
     购买成功
   </view>
-  <view wx:else>
-    错误，{{errorMsg}}
+  <view wx:else class="result-view">
+    购买错误，{{errorMsg}}
+  </view>
+  <view class="link-view">
+    <navigator url="/pages/index/store/list" class="link-nav-view">返回积分商城</navigator>
+  </view>
+  <view class="link-view">
+    <navigator url="/pages/index/store/mine" class="link-nav-view">查看我的订单</navigator>
   </view>
 </view>

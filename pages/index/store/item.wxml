@@ -14,13 +14,13 @@
     <view class="name-text">{{name}}</view>
   </view>
   <view class="point-view">
-    <view class="point-text">消耗积分：{{point}}</view>
-    <view class="point-stock">目前库存:{{left}}/{{stock}}</view>
+    <view class="point-text">需要积分：{{point}}</view>
+    <view class="point-stock">目前库存：{{left}}/{{stock}}</view>
   </view>
   <view class="intro-view">
     <view class="intro-text">商品简介：{{intro}}</view>
   </view>
   <view class="order-view">
-    <button style="width: 700rpx;" size="default" type="primary" bindtap="confirm">兑换该商品（需要{{point}}积分）</button>
+    <button size="default" type="primary" bindtap="confirm">兑换该商品</button>
   </view>
 </view>

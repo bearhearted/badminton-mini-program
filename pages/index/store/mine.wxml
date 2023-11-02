@@ -1,0 +1,28 @@
+<!--pages/index/store/mine.wxml-->
+<view class="body-view">
+  <view class="head-view">我的历史订单</view>
+  <view wx:if="{{list.length==0}}" class="no-order-view">
+    <view class="wait-view">还没有订单记录，赶紧去<text class="join-event-view" bind:tap="jumpToStore">积分商城</text>兑换吧</view>
+  </view>
+  <view wx:else class="body-list-view">
+    <view class="point-entity-view">
+      <view class="point-day-view">日期</view>
+      <view class="point-scene-view-center">兑换商品</view>
+      <view class="point-point-view">积分</view>
+      <view class="point-result-view">状态</view>
+    </view>
+    <view class="body-list-view">
+      <view class="point-list-view" wx:for="{{list}}" wx:for-index="order" wx:key="index" data-id="{{item.id}}">
+        <view class="point-entity-view">
+          <view class="point-day-view">{{item.date}}</view>
+          <view class="point-scene-view">{{item.name}}</view>
+          <view class="point-point-view">{{item.point}}</view>
+          <view class="point-result-view">{{item.result}}</view>
+        </view>
+      </view>
+    </view>
+    <view wx:if="{{!isLast}}" class="button-view">
+      <button class="submit-button" type="primary" bindtap="loadMore">加载更多</button>
+    </view>
+  </view>
+</view>

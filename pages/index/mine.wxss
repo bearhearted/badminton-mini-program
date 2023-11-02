@@ -17,7 +17,7 @@
 .window-view {
 	width: 560rpx;
 	background-color: #ffffff;
-	height: 780rpx;
+	height: 820rpx;
 	border-radius: 30rpx;
 	display: flex;
 	flex-direction: column;
@@ -41,7 +41,8 @@
 	clip-path: circle(138rpx at center);
 }
 .name-view {
-  padding-top: 10rpx;
+  padding-top: 20rpx;
+  padding-bottom: 20rpx;
 }
 .button-view {
   height: 100rpx;
@@ -85,16 +86,23 @@
   width: 80rpx;
   text-align: left
 }
+.link-view {
+  width: 350rpx;
+  height: 90rpx;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
 .mine-edit-view {
   width: 150rpx;
   height: 60rpx;
   color: #cc9966;
   text-align: left;
 }
-.link-view {
+.single-link-view {
   width: 350rpx;
-  height: 100rpx;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+  height: 90rpx;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }

@@ -57,6 +57,9 @@
         </view>
         <view class="link-view">
           <navigator url="/pages/index/battle/mine" class="mine-edit-view">我的对战</navigator>
+          <navigator url="/pages/index/store/mine" class="mine-edit-view">我的订单</navigator>
+        </view>
+        <view class="single-link-view">
           <navigator url="/pages/index/user" class="mine-edit-view">修改资料</navigator>
         </view>
       </view>

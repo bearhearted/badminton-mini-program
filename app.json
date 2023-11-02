@@ -13,7 +13,8 @@
     "pages/index/store/list",
     "pages/index/store/item",
     "pages/index/store/confirm",
-    "pages/index/store/order"
+    "pages/index/store/order",
+    "pages/index/store/mine"
   ],
   "window": {
     "backgroundTextStyle": "light",

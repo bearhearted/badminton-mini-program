@@ -20,7 +20,7 @@ Page({
   loadItem: function () {
     var that = this
     wx.request({
-      url: app.apiUrl + 'store/item/' + that.data.itemId + '/buy',
+      url: app.apiUrl + 'store/item/' + that.data.itemId + '/confirm',
       data: {
         sid: app.globalData.USER_SESSION_ID
       },

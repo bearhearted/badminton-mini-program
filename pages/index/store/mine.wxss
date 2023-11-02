@@ -1,0 +1,77 @@
+/* pages/index/store/mine.wxss */
+.body-view {
+  height: 100vh;
+}
+.head-view {
+  width: 100%;
+  height: 100rpx;
+  text-align: center;
+  line-height: 44px;
+  border-top: 5rpx solid #cccccc;
+  border-bottom: 5rpx solid #cccccc;
+}
+.point-entity-view {
+  font-size:32rpx;
+  width: 100%;
+  display: flex;
+  justify-content:left;
+  align-items: center;
+  padding: 10rpx 0;
+  border-bottom: 3rpx solid #cccccc;
+}
+.point-day-view {
+  width: 180rpx;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  margin-left: 50rpx;
+}
+.point-scene-view-center {
+  width: 230rpx;
+  text-align: center;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding-left: 50rpx;
+}
+.point-scene-view {
+  width: 230rpx;
+  text-align: left;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding-left: 50rpx;
+}
+.point-point-view {
+  width: 120rpx;
+  height: 100%;
+  display: flex;
+  justify-content:center;
+  align-items: center;
+  margin-right: 10rpx;
+  border-radius: 5px;
+}
+.point-point-view {
+  width: 120rpx;
+  height: 100%;
+  display: flex;
+  justify-content:center;
+  align-items: center;
+  margin-right: 10rpx;
+  border-radius: 5px;
+}
+.button-view {
+  padding: 20rpx;
+}
+.wait-view {
+  padding-top:50rpx;
+  text-align: center;
+  margin: 0 50rpx;
+}
+.join-event-view {
+  color:darksalmon;
+}

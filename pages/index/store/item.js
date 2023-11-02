@@ -117,8 +117,22 @@ Page({
    * 跳转确认页面
    */
   confirm() {
-    wx.redirectTo({
-      url: '/pages/index/store/confirm?id=' + this.data.itemId,
-    })
+    if (!this.data.afford) {
+      wx.showModal({
+        title: '错误',
+        content: '您的积分不足，请查看其他商品',
+        showCancel: false
+      })
+    } else if (this.data.left < 1) {
+      wx.showModal({
+        title: '错误',
+        content: '商品库存不足，请查看其他商品',
+        showCancel: false
+      })
+    } else {
+      wx.redirectTo({
+        url: '/pages/index/store/confirm?id=' + this.data.itemId,
+      })
+    }
   }
 })
